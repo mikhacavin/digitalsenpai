@@ -200,7 +200,7 @@
                       Contact
                     </a>
                   </li>
-                  <li class="relative group submenu-item">
+                  <!-- <li class="relative group submenu-item">
                     <a
                       href="javascript:void(0)"
                       class="
@@ -358,13 +358,13 @@
                         404 Page
                       </a>
                     </div>
-                  </li>
+                  </li> -->
                 </ul>
               </nav>
             </div>
             <div class="sm:flex justify-end hidden pr-16 lg:pr-0">
               <a
-                href="signin.html"
+                href="#"
                 class="
                   text-base
                   font-medium
@@ -378,7 +378,7 @@
                 Sign In
               </a>
               <a
-                href="signup.html"
+                href="#"
                 class="
                   text-base
                   font-medium
@@ -453,7 +453,7 @@
               <ul class="flex flex-wrap items-center justify-center mb-10">
                 <li>
                   <a
-                    href="https://links.tailgrids.com/play-download"
+                    href="#"
                     class="
                       py-4
                       px-6
@@ -476,7 +476,7 @@
                 </li>
                 <li>
                   <a
-                    href="https://github.com/tailgrids/play-tailwind"
+                    href="#"
                     target="_blank"
                     class="
                       text-base
@@ -3356,7 +3356,7 @@
               <div class="ud-brands-logo flex items-center flex-wrap">
                 <div class="ud-single-logo mr-10 mb-5 max-w-[140px]">
                   <a
-                    href="https://tailgrids.com"
+                    href="#"
                     target="_blank"
                     rel="nofollow noopner"
                   >
@@ -3369,7 +3369,7 @@
                 </div>
                 <div class="ud-single-logo mr-10 mb-5 max-w-[140px]">
                   <a
-                    href="https://ayroui.com"
+                    href="#"
                     target="_blank"
                     rel="nofollow noopner"
                   >
@@ -3382,7 +3382,7 @@
                 </div>
                 <div class="ud-single-logo mr-10 mb-5 max-w-[140px]">
                   <a
-                    href="https://uideck.com"
+                    href="#"
                     target="_blank"
                     rel="nofollow noopner"
                   >
@@ -3395,7 +3395,7 @@
                 </div>
                 <div class="ud-single-logo mr-10 mb-5 max-w-[140px]">
                   <a
-                    href="https://graygrids.com"
+                    href="#"
                     target="_blank"
                     rel="nofollow noopner"
                   >
@@ -3408,7 +3408,7 @@
                 </div>
                 <div class="ud-single-logo mr-10 mb-5 max-w-[140px]">
                   <a
-                    href="https://lineicons.com"
+                    href="#"
                     target="_blank"
                     rel="nofollow noopner"
                   >
@@ -3426,6 +3426,15 @@
       </div>
     </section>
     <!-- ====== Testimonials End ====== -->
+
+    <!-- ====== Blog Section Start -->
+    <section class="pt-20 lg:pt-[120px] pb-10 lg:pb-20">
+      <div class="container">
+        <div class="flex flex-wrap -mx-4" id="new">
+        </div>
+      </div>
+    </section>
+    <!-- ====== Blog Section End -->
 
     <!-- ====== Team Section Start -->
     <section id="team" class="pt-20 lg:pt-[120px] pb-10 lg:pb-20">
@@ -6053,7 +6062,7 @@
               <ul class="flex flex-wrap items-center">
                 <li>
                   <a
-                    href="https://tailgrids.com"
+                    href="#"
                     rel="nofollow noopner"
                     target="_blank"
                     class="
@@ -6073,7 +6082,7 @@
                 </li>
                 <li>
                   <a
-                    href="https://ayroui.com"
+                    href="#"
                     rel="nofollow noopner"
                     target="_blank"
                     class="
@@ -6093,7 +6102,7 @@
                 </li>
                 <li>
                   <a
-                    href="https://ecommercehtml.com"
+                    href="#"
                     rel="nofollow noopner"
                     target="_blank"
                     class="
@@ -6113,7 +6122,7 @@
                 </li>
                 <li>
                   <a
-                    href="https://graygrids.com"
+                    href="#"
                     rel="nofollow noopner"
                     target="_blank"
                     class="
@@ -6133,7 +6142,7 @@
                 </li>
                 <li>
                   <a
-                    href="https://lineicons.com"
+                    href="#"
                     rel="nofollow noopner"
                     target="_blank"
                     class="
@@ -6153,7 +6162,7 @@
                 </li>
                 <li>
                   <a
-                    href="https://uideck.com"
+                    href="#"
                     rel="nofollow noopner"
                     target="_blank"
                     class="
@@ -6217,7 +6226,7 @@
                 <p class="text-base text-[#f3f4fe]">
                   Designed and Developed by
                   <a
-                    href="https://tailgrids.com"
+                    href="#"
                     rel="nofollow noopner"
                     target="_blank"
                     class="text-primary hover:underline"
@@ -6575,6 +6584,69 @@
       }
 
       window.document.addEventListener("scroll", onScroll);
-    </script>
+
+  // data 
+let data = [
+    {judul: 'judul0', description: 'description0', date: 'XX/XX/XXXX'},
+    {judul: 'judul1', description: 'description1', date: 'XX/XX/XXXX'},
+    {judul: 'judul2', description: 'description2', date: 'XX/XX/XXXX'},
+]
+
+console.log(data);
+for(let i = 0; i < data.length; i++) {
+//initialize element
+var div = document.createElement("div");
+var div2 = document.createElement("div");
+var div_a = document.createElement("div");
+var div_b = document.createElement("div");
+var a = document.createElement("a");
+var a2 = document.createElement("a");
+var img = document.createElement("IMG");
+var span = document.createElement("SPAN");
+var h3 = document.createElement("H3");
+var p = document.createElement("p");
+p.className = "text-base text-body-color";
+var textP = document.createTextNode(data[i].description);
+p.appendChild(textP);
+div.className = "w-full md:w-1/2 lg:w-1/4 px-4";
+div2.className = 'mb-10 group wow fadeInUp';
+div_a.className = 'rounded overflow-hidden mb-8';
+div2.setAttribute("data-wow-delay", ".1s");
+a.className = 'block';
+a2.className = 'font-semibold text-xl sm:text-2xl lg:text-xl xl:text-2xl mb-4 inline-block text-dark hover:text-primary';
+a.href = "blog-details.html";
+a2.href = "blog-details.html";
+var textAnchor = document.createTextNode(data[i].judul);
+a2.appendChild(textAnchor);
+img.setAttribute("src", "assets/images/blog/blog-01.jpg");
+img.className = 'w-full transition group-hover:scale-125 group-hover:rotate-6';
+img.setAttribute("alt", "image");
+span.className = 'bg-primary rounded inline-block text-center py-1 px-4 text-xs leading-loose font-semibold text-white mb-5';
+var textSpan = document.createTextNode(data[i].date);
+span.appendChild(textSpan);
+
+// div_a append
+a.appendChild(img)
+div_a.appendChild(a)
+
+//div_b append 
+h3.appendChild(a2)
+div_b.appendChild(h3)
+div_b.appendChild(span)
+div_b.appendChild(p)
+
+//div2 appen
+div2.appendChild(div_a);
+div2.appendChild(div_b);
+
+
+//appendelement to div parent
+div.appendChild(div2);
+
+var element = document.getElementById("new");
+element.appendChild(div);
+}
+
+</script>
   </body>
 </html>
