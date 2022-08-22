@@ -1,0 +1,106 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>
+			How to add a parameter to the URL
+		</title>	
+	</head>
+	
+	<body style = "text-align:center;">
+		
+		<h1 style = "color:green;" >
+			GeeksForGeeks
+		</h1>
+		
+		<p id = "GFG_UP" style =
+			"font-size: 15px; font-weight: bold;">
+		</p>
+		
+		<button onclick = "GFG_Fun()">
+			Add Parameter
+		</button>
+		
+		<p id = "GFG_DOWN" style =
+			"color:green; font-size: 20px; font-weight: bold;">
+		</p>
+		
+		<script>
+			var up = document.getElementById('GFG_UP');
+			var url = new URL("https://www.geeksforgeeks.org");
+			up.innerHTML = url;
+			var down = document.getElementById('GFG_DOWN');
+			
+			function GFG_Fun() {
+				url.searchParams.set('param_1', 'val_1');
+				data = window.history.replaceState(null, null, "?name=123");
+				down.innerHTML = data;
+			}
+			
+			const params = new URLSearchParams(window.location.search)
+			for (const param of params) {
+			  console.log(param)
+			}
+			const product = params.get('name')
+			 console.log(product)
+			 
+			 console.log(document.location);
+			
+		</script>
+		
+		
+		
+		
+		
+<h1>JavaScript Arrays</h1>
+<h2>The filter() Method</h2>
+
+<p>Click "Test" to get every element in the array that has a value above this number: 
+<br>
+https://www.javascripttutorial.net/javascript-array-filter/
+<br>
+https://www.sitepoint.com/get-url-parameters-with-javascript/
+<br>
+https://flexiple.com/javascript/javascript-filter-array/
+</p>
+
+<p><input type="number" id="ageToCheck" value="30"></p>
+<button onclick="myFunction()">Test</button>
+<select name="cars" id="cars" onChange="filterNumber()">
+  <option value="32">32</option>
+  <option value="33">33</option>
+  <option value="12">12</option>
+  <option value="40">40</option>
+</select>
+
+<p id="demo" onChange="cekparam()"></p>
+
+<script>
+const ages = [32, 33, 12, 40];
+
+function checkAge(age) {
+  return age > document.getElementById("ageToCheck").value;
+}
+
+function myFunction() {
+  document.getElementById("demo").innerHTML = ages.filter(checkAge);
+}
+
+function filterNumber() {
+  valueChange = document.getElementById("cars").value;
+  window.history.replaceState(null, null, '?filter='+valueChange);
+  document.getElementById("demo").innerHTML = valueChange;
+  cekparam()
+}
+
+//cek param semua filter, jika param kosong, maka tampilkan semua list, jika param ada, tampilkan data filter
+
+function cekparam(){
+const params2 = new URLSearchParams(window.location.search)
+console.log(params2.get('filter'))
+}
+
+ document.getElementById("demo").innerHTML = ages;
+</script>
+
+	</body>
+</html>					
