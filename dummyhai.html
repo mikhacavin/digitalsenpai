@@ -10,15 +10,10 @@
       href="assets/images/favicon.png"
       type="image/x-icon"
     />
-    <link rel="stylesheet" href="assets/css/animate.css" />
     <link rel="stylesheet" href="assets/css/tailwind.css" />
 
-    <!-- ==== WOW JS ==== -->
-    <script src="assets/js/wow.min.js"></script>
+
     <script defer src="assets/js/alpine.min.js"></script>
-    <script>
-      new WOW().init();
-    </script>
   </head>
   <body>
     <!-- ====== Navbar Section Start -->
@@ -492,293 +487,275 @@
     </div>
     <!-- ====== Banner Section End -->
 
-    <!-- ====== Blog Section Start -->
-    <section class="pt-20 lg:pt-[120px] pb-10 lg:pb-20">
-      <select name="cars" id="cars" onchange="updatedData()">
-        <option value="all">all</option>
-        <!-- <option value="judul0">post 1</option>
-        <option value="judul1">post 2</option>
-        <option value="judul2">post 3</option> -->
-      </select>
-      <select name="cars" id="tanggal" onchange="updatedData()">
-        <option value="all">all</option>
-        <!-- <option value="12/12/2012">12/12/2012</option>
-        <option value="12/11/1012">12/11/1012</option> -->
-      </select>
-      <div class="container">
-        <div class="flex flex-wrap -mx-4" id="new">
+
+
+    <!-- ====== Portfolio Section Start -->
+    <section
+      x-data="
+        {
+          showCards: 'all',
+          activeClasses: 'bg-primary text-white',
+          inactiveClasses: 'text-body-color hover:bg-primary hover:text-white',
+        }
+      "
+      class="pt-20 pb-12 lg:pt-[120px] lg:pb-[90px]"
+    >
+      <div class="container mx-auto">
+        <div class="-mx-4 flex flex-wrap">
+          <div class="w-full px-4">
+            <div class="mx-auto mb-[60px] max-w-[510px] text-center">
+              <span class="mb-2 block text-lg font-semibold text-primary">
+                Our Portfolio
+              </span>
+              <h2
+                class="mb-4 text-3xl font-bold text-dark sm:text-4xl md:text-[40px]"
+              >
+                Our Recent Projects
+              </h2>
+              <p class="text-base text-body-color">
+                There are many variations of passages of Lorem Ipsum available
+                but the majority have suffered alteration in some form.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="-mx-4 flex flex-wrap justify-center">
+          <div class="w-full px-4">
+            <ul class="mb-12 flex flex-wrap justify-center space-x-1" id="buttonFilter">
+              <li class="mb-1">
+                <button
+                  @click="showCards = 'all' "
+                  :class="showCards == 'all' ? activeClasses : inactiveClasses "
+                  class="inline-block rounded-lg py-2 px-5 text-center text-base font-semibold transition md:py-3 lg:px-8"
+                >
+                  All Projects
+                </button>
+              </li>
+              <li class="mb-1">
+                <button
+                  @click="showCards = 'branding' "
+                  :class="showCards == 'branding' ? activeClasses : inactiveClasses "
+                  class="inline-block rounded-lg py-2 px-5 text-center text-base font-semibold transition md:py-3 lg:px-8"
+                >
+                  Branding
+                </button>
+              </li>
+              <li class="mb-1">
+                <button
+                  @click="showCards = 'design' "
+                  :class="showCards == 'design' ? activeClasses : inactiveClasses "
+                  class="inline-block rounded-lg py-2 px-5 text-center text-base font-semibold transition md:py-3 lg:px-8"
+                >
+                  Design
+                </button>
+              </li>
+              <li class="mb-1">
+                <button
+                  @click="showCards = 'marketing' "
+                  :class="showCards == 'marketing' ? activeClasses : inactiveClasses "
+                  class="inline-block rounded-lg py-2 px-5 text-center text-base font-semibold transition md:py-3 lg:px-8"
+                >
+                  Marketing
+                </button>
+              </li>
+              <li class="mb-1">
+                <button
+                  @click="showCards = 'development' "
+                  :class="showCards == 'development' ? activeClasses : inactiveClasses "
+                  class="inline-block rounded-lg py-2 px-5 text-center text-base font-semibold transition md:py-3 lg:px-8"
+                >
+                  Development
+                </button>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="-mx-4 flex flex-wrap" id="portofolio">
+          <div
+            :class="showCards == 'all' || showCards == 'branding' ? 'block' : 'hidden' "
+            class="w-full px-4 md:w-1/2 lg:w-1/3"
+          >
+            <div class="relative mb-12">
+              <div class="overflow-hidden rounded-lg">
+                <img
+                  src="assets/images/portfolio/portfolio-01/image-01.jpg"
+                  alt="portfolio"
+                  class="w-full"
+                />
+              </div>
+              <div
+                class="relative z-10 mx-7 -mt-20 rounded-lg bg-white py-9 px-3 text-center shadow-lg"
+              >
+                <span class="mb-2 block text-sm font-semibold text-primary">
+                  Branding
+                </span>
+                <h3 class="mb-4 text-xl font-bold text-dark">
+                  Branding Design
+                </h3>
+                <a
+                  href="javascript:void(0)"
+                  class="inline-block rounded-md border py-3 px-7 text-sm font-semibold text-body-color transition hover:border-primary hover:bg-primary hover:text-white"
+                >
+                  View Details
+                </a>
+              </div>
+            </div>
+          </div>
+          <div
+            :class="showCards == 'all' || showCards == 'marketing' ? 'block' : 'hidden' "
+            class="w-full px-4 md:w-1/2 lg:w-1/3"
+          >
+            <div class="relative mb-12">
+              <div class="overflow-hidden rounded-lg">
+                <img
+                  src="assets/images/portfolio/portfolio-01/image-02.jpg"
+                  alt="portfolio"
+                  class="w-full"
+                />
+              </div>
+              <div
+                class="relative z-10 mx-7 -mt-20 rounded-lg bg-white py-9 px-3 text-center shadow-lg"
+              >
+                <span class="mb-2 block text-sm font-semibold text-primary">
+                  Marketing
+                </span>
+                <h3 class="mb-4 text-xl font-bold text-dark">
+                  Best Marketing tips
+                </h3>
+                <a
+                  href="javascript:void(0)"
+                  class="inline-block rounded-md border py-3 px-7 text-sm font-semibold text-body-color transition hover:border-primary hover:bg-primary hover:text-white"
+                >
+                  View Details
+                </a>
+              </div>
+            </div>
+          </div>
+          <div
+            :class="showCards == 'all' || showCards == 'development' ? 'block' : 'hidden' "
+            class="w-full px-4 md:w-1/2 lg:w-1/3"
+          >
+            <div class="relative mb-12">
+              <div class="overflow-hidden rounded-lg">
+                <img
+                  src="assets/images/portfolio/portfolio-01/image-03.jpg"
+                  alt="portfolio"
+                  class="w-full"
+                />
+              </div>
+              <div
+                class="relative z-10 mx-7 -mt-20 rounded-lg bg-white py-9 px-3 text-center shadow-lg"
+              >
+                <span class="mb-2 block text-sm font-semibold text-primary">
+                  Development
+                </span>
+                <h3 class="mb-4 text-xl font-bold text-dark">
+                  Web Design Trend
+                </h3>
+                <a
+                  href="javascript:void(0)"
+                  class="inline-block rounded-md border py-3 px-7 text-sm font-semibold text-body-color transition hover:border-primary hover:bg-primary hover:text-white"
+                >
+                  View Details
+                </a>
+              </div>
+            </div>
+          </div>
+          <div
+            :class="showCards == 'all' || showCards == 'design' ? 'block' : 'hidden' "
+            class="w-full px-4 md:w-1/2 lg:w-1/3"
+          >
+            <div class="relative mb-12">
+              <div class="overflow-hidden rounded-lg">
+                <img
+                  src="assets/images/portfolio/portfolio-01/image-04.jpg"
+                  alt="portfolio"
+                  class="w-full"
+                />
+              </div>
+              <div
+                class="relative z-10 mx-7 -mt-20 rounded-lg bg-white py-9 px-3 text-center shadow-lg"
+              >
+                <span class="mb-2 block text-sm font-semibold text-primary">
+                  Design
+                </span>
+                <h3 class="mb-4 text-xl font-bold text-dark">
+                  Business Card Design
+                </h3>
+                <a
+                  href="javascript:void(0)"
+                  class="inline-block rounded-md border py-3 px-7 text-sm font-semibold text-body-color transition hover:border-primary hover:bg-primary hover:text-white"
+                >
+                  View Details
+                </a>
+              </div>
+            </div>
+          </div>
+          <div
+            :class="showCards == 'all' || showCards == 'marketing' ? 'block' : 'hidden' "
+            class="w-full px-4 md:w-1/2 lg:w-1/3"
+          >
+            <div class="relative mb-12">
+              <div class="overflow-hidden rounded-lg">
+                <img
+                  src="assets/images/portfolio/portfolio-01/image-05.jpg"
+                  alt="portfolio"
+                  class="w-full"
+                />
+              </div>
+              <div
+                class="relative z-10 mx-7 -mt-20 rounded-lg bg-white py-9 px-3 text-center shadow-lg"
+              >
+                <span class="mb-2 block text-sm font-semibold text-primary">
+                  Marketing
+                </span>
+                <h3 class="mb-4 text-xl font-bold text-dark">
+                  Digital marketing
+                </h3>
+                <a
+                  href="javascript:void(0)"
+                  class="inline-block rounded-md border py-3 px-7 text-sm font-semibold text-body-color transition hover:border-primary hover:bg-primary hover:text-white"
+                >
+                  View Details
+                </a>
+              </div>
+            </div>
+          </div>
+          <div
+            :class="showCards == 'all' || showCards == 'branding' ? 'block' : 'hidden' "
+            class="w-full px-4 md:w-1/2 lg:w-1/3"
+          >
+            <div class="relative mb-12">
+              <div class="overflow-hidden rounded-lg">
+                <img
+                  src="assets/images/portfolio/portfolio-01/image-06.jpg"
+                  alt="portfolio"
+                  class="w-full"
+                />
+              </div>
+              <div
+                class="relative z-10 mx-7 -mt-20 rounded-lg bg-white py-9 px-3 text-center shadow-lg"
+              >
+                <span class="mb-2 block text-sm font-semibold text-primary">
+                  Branding
+                </span>
+                <h3 class="mb-4 text-xl font-bold text-dark">
+                  Creative Agency
+                </h3>
+                <a
+                  href="javascript:void(0)"
+                  class="inline-block rounded-md border py-3 px-7 text-sm font-semibold text-body-color transition hover:border-primary hover:bg-primary hover:text-white"
+                >
+                  View Details
+                </a>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
-    <!-- ====== Blog Section End -->
+    <!-- ====== Portfolio Section End -->
 
-
-  <!-- ====== Portfolio Section Start -->
-  <section
-  x-data="
-    {
-      showCards: 'all',
-      activeClasses: 'bg-primary text-white',
-      inactiveClasses: 'text-body-color hover:bg-primary hover:text-white',
-    }
-  "
-  class="pt-20 pb-12 lg:pt-[120px] lg:pb-[90px]"
->
-  <div class="container mx-auto">
-    <div class="-mx-4 flex flex-wrap">
-      <div class="w-full px-4">
-        <div class="mx-auto mb-[60px] max-w-[510px] text-center">
-          <span class="mb-2 block text-lg font-semibold text-primary">
-            Our Portfolio
-          </span>
-          <h2
-            class="mb-4 text-3xl font-bold text-dark sm:text-4xl md:text-[40px]"
-          >
-            Our Recent Projects
-          </h2>
-          <p class="text-base text-body-color">
-            There are many variations of passages of Lorem Ipsum available
-            but the majority have suffered alteration in some form.
-          </p>
-        </div>
-      </div>
-    </div>
-    <div class="-mx-4 flex flex-wrap justify-center">
-      <div class="w-full px-4">
-        <ul class="mb-12 flex flex-wrap justify-center space-x-1">
-          <li class="mb-1">
-            <button
-              @click="showCards = 'all' "
-              :class="showCards == 'all' ? activeClasses : inactiveClasses "
-              class="inline-block rounded-lg py-2 px-5 text-center text-base font-semibold transition md:py-3 lg:px-8"
-            >
-              All Projects
-            </button>
-          </li>
-          <li class="mb-1">
-            <button
-              @click="showCards = 'branding' "
-              :class="showCards == 'branding' ? activeClasses : inactiveClasses "
-              class="inline-block rounded-lg py-2 px-5 text-center text-base font-semibold transition md:py-3 lg:px-8"
-            >
-              Branding
-            </button>
-          </li>
-          <li class="mb-1">
-            <button
-              @click="showCards = 'design' "
-              :class="showCards == 'design' ? activeClasses : inactiveClasses "
-              class="inline-block rounded-lg py-2 px-5 text-center text-base font-semibold transition md:py-3 lg:px-8"
-            >
-              Design
-            </button>
-          </li>
-          <li class="mb-1">
-            <button
-              @click="showCards = 'marketing' "
-              :class="showCards == 'marketing' ? activeClasses : inactiveClasses "
-              class="inline-block rounded-lg py-2 px-5 text-center text-base font-semibold transition md:py-3 lg:px-8"
-            >
-              Marketing
-            </button>
-          </li>
-          <li class="mb-1">
-            <button
-              @click="showCards = 'development' "
-              :class="showCards == 'development' ? activeClasses : inactiveClasses "
-              class="inline-block rounded-lg py-2 px-5 text-center text-base font-semibold transition md:py-3 lg:px-8"
-            >
-              Development
-            </button>
-          </li>
-        </ul>
-      </div>
-    </div>
-    <div class="-mx-4 flex flex-wrap">
-      <div
-        :class="showCards == 'all' || showCards == 'branding' ? 'block' : 'hidden' "
-        class="w-full px-4 md:w-1/2 xl:w-1/3"
-      >
-        <div class="relative mb-12">
-          <div class="overflow-hidden rounded-lg">
-            <img
-              src="assets/images/portfolio/portfolio-01/image-01.jpg"
-              alt="portfolio"
-              class="w-full"
-            />
-          </div>
-          <div
-            class="relative z-10 mx-7 -mt-20 rounded-lg bg-white py-9 px-3 text-center shadow-lg"
-          >
-            <span class="mb-2 block text-sm font-semibold text-primary">
-              Branding
-            </span>
-            <h3 class="mb-4 text-xl font-bold text-dark">
-              Branding Design
-            </h3>
-            <a
-              href="javascript:void(0)"
-              class="inline-block rounded-md border py-3 px-7 text-sm font-semibold text-body-color transition hover:border-primary hover:bg-primary hover:text-white"
-            >
-              View Details
-            </a>
-          </div>
-        </div>
-      </div>
-      <div
-        :class="showCards == 'all' || showCards == 'marketing' ? 'block' : 'hidden' "
-        class="w-full px-4 md:w-1/2 xl:w-1/3"
-      >
-        <div class="relative mb-12">
-          <div class="overflow-hidden rounded-lg">
-            <img
-              src="assets/images/portfolio/portfolio-01/image-02.jpg"
-              alt="portfolio"
-              class="w-full"
-            />
-          </div>
-          <div
-            class="relative z-10 mx-7 -mt-20 rounded-lg bg-white py-9 px-3 text-center shadow-lg"
-          >
-            <span class="mb-2 block text-sm font-semibold text-primary">
-              Marketing
-            </span>
-            <h3 class="mb-4 text-xl font-bold text-dark">
-              Best Marketing tips
-            </h3>
-            <a
-              href="javascript:void(0)"
-              class="inline-block rounded-md border py-3 px-7 text-sm font-semibold text-body-color transition hover:border-primary hover:bg-primary hover:text-white"
-            >
-              View Details
-            </a>
-          </div>
-        </div>
-      </div>
-      <div
-        :class="showCards == 'all' || showCards == 'development' ? 'block' : 'hidden' "
-        class="w-full px-4 md:w-1/2 xl:w-1/3"
-      >
-        <div class="relative mb-12">
-          <div class="overflow-hidden rounded-lg">
-            <img
-              src="assets/images/portfolio/portfolio-01/image-03.jpg"
-              alt="portfolio"
-              class="w-full"
-            />
-          </div>
-          <div
-            class="relative z-10 mx-7 -mt-20 rounded-lg bg-white py-9 px-3 text-center shadow-lg"
-          >
-            <span class="mb-2 block text-sm font-semibold text-primary">
-              Development
-            </span>
-            <h3 class="mb-4 text-xl font-bold text-dark">
-              Web Design Trend
-            </h3>
-            <a
-              href="javascript:void(0)"
-              class="inline-block rounded-md border py-3 px-7 text-sm font-semibold text-body-color transition hover:border-primary hover:bg-primary hover:text-white"
-            >
-              View Details
-            </a>
-          </div>
-        </div>
-      </div>
-      <div
-        :class="showCards == 'all' || showCards == 'design' ? 'block' : 'hidden' "
-        class="w-full px-4 md:w-1/2 xl:w-1/3"
-      >
-        <div class="relative mb-12">
-          <div class="overflow-hidden rounded-lg">
-            <img
-              src="assets/images/portfolio/portfolio-01/image-04.jpg"
-              alt="portfolio"
-              class="w-full"
-            />
-          </div>
-          <div
-            class="relative z-10 mx-7 -mt-20 rounded-lg bg-white py-9 px-3 text-center shadow-lg"
-          >
-            <span class="mb-2 block text-sm font-semibold text-primary">
-              Design
-            </span>
-            <h3 class="mb-4 text-xl font-bold text-dark">
-              Business Card Design
-            </h3>
-            <a
-              href="javascript:void(0)"
-              class="inline-block rounded-md border py-3 px-7 text-sm font-semibold text-body-color transition hover:border-primary hover:bg-primary hover:text-white"
-            >
-              View Details
-            </a>
-          </div>
-        </div>
-      </div>
-      <div
-        :class="showCards == 'all' || showCards == 'marketing' ? 'block' : 'hidden' "
-        class="w-full px-4 md:w-1/2 xl:w-1/3"
-      >
-        <div class="relative mb-12">
-          <div class="overflow-hidden rounded-lg">
-            <img
-              src="assets/images/portfolio/portfolio-01/image-05.jpg"
-              alt="portfolio"
-              class="w-full"
-            />
-          </div>
-          <div
-            class="relative z-10 mx-7 -mt-20 rounded-lg bg-white py-9 px-3 text-center shadow-lg"
-          >
-            <span class="mb-2 block text-sm font-semibold text-primary">
-              Marketing
-            </span>
-            <h3 class="mb-4 text-xl font-bold text-dark">
-              Digital marketing
-            </h3>
-            <a
-              href="javascript:void(0)"
-              class="inline-block rounded-md border py-3 px-7 text-sm font-semibold text-body-color transition hover:border-primary hover:bg-primary hover:text-white"
-            >
-              View Details
-            </a>
-          </div>
-        </div>
-      </div>
-      <div
-        :class="showCards == 'all' || showCards == 'branding' ? 'block' : 'hidden' "
-        class="w-full px-4 md:w-1/2 xl:w-1/3"
-      >
-        <div class="relative mb-12">
-          <div class="overflow-hidden rounded-lg">
-            <img
-              src="assets/images/portfolio/portfolio-01/image-06.jpg"
-              alt="portfolio"
-              class="w-full"
-            />
-          </div>
-          <div
-            class="relative z-10 mx-7 -mt-20 rounded-lg bg-white py-9 px-3 text-center shadow-lg"
-          >
-            <span class="mb-2 block text-sm font-semibold text-primary">
-              Branding
-            </span>
-            <h3 class="mb-4 text-xl font-bold text-dark">
-              Creative Agency
-            </h3>
-            <a
-              href="javascript:void(0)"
-              class="inline-block rounded-md border py-3 px-7 text-sm font-semibold text-body-color transition hover:border-primary hover:bg-primary hover:text-white"
-            >
-              View Details
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-<!-- ====== Portfolio Section End -->
 
 
     <!-- ====== Footer Section Start -->
@@ -1549,179 +1526,84 @@
     <!-- ====== Back To Top End -->
 
     <!-- ====== All Scripts -->
-    <script src="assets/js/main.js"></script>
-   
+    <!-- <script src="assets/js/main.js"></script> -->
+
     <script>
-      // Supposing you already have queried the API and have your data
-    let data = [
-        {judul: 'resto', description: 'description0', date: 'landing'},
-        {judul: 'resto', description: 'description1', date: 'cms'},
-        {judul: 'construction', description: 'description2', date: 'landing'},
+       let dataPortofolio = [
+        {judul: 'Resto', description: 'description0', category: 'Resto'},
+        {judul: 'Alat Berat', description: 'description1', category: 'Alat Berat'},
+        {judul: 'Construction', description: 'description2', category: 'Construction'},
+        {judul: 'Export', description: 'description2', category: 'Export'},
       ]
-
-      function element(satu, dua , tiga){
-        return  elementCard = `<div class="w-full px-4 md:w-1/2 lg:w-1/3">
-                  <div class="wow fadeInUp group mb-10" data-wow-delay=".1s" style="visibility: visible; animation-delay: 0.1s;">
-                    <div class="mb-8 overflow-hidden rounded">
-                      <a href="blog-details.html" class="block">
-                        <img src="assets/images/blog/blog-01.jpg" alt="image" class="w-full transition group-hover:rotate-6 group-hover:scale-125">
-                      </a>
-                    </div>
-                    <div>
-                      <span class="mb-5 inline-block rounded bg-primary py-1 px-4 text-center text-xs font-semibold leading-loose text-white">
-                        ${satu}
-                      </span>
-                      <h3>
-                        <a href="blog-details.html" class="mb-4 inline-block text-xl font-semibold text-dark hover:text-primary sm:text-2xl lg:text-xl xl:text-2xl">
-                          ${dua}
-                        </a>
-                      </h3>
-                      <p class="text-base text-body-color">
-                        ${tiga}
-                      </p>
-                    </div>
-                  </div>
-                </div>`;
-      }
-    showData();
-  function showData() {
-    document.getElementById("new").innerHTML = "";
-    for(let i = 0; i< data.length; i++){
-        document.getElementById('new').innerHTML +=  element( data[i].date,data[i].judul,data[i].description);
-    };
-    var judul1 =  document.getElementById("cars");
-    var tanggal =  document.getElementById("tanggal");
-
-    //set judul 
-    const uniqueIds = new Set();
-    const unique = data.filter(element => {
-    const isDuplicate = uniqueIds.has(element.judul);
-    uniqueIds.add(element.judul);
-    if (!isDuplicate) {
-      return true;
-    }
-    return false;
-    });
-
-    console.log('hasil type',unique);
-      for(let i = 0; i< unique.length; i++){
-        option = document.createElement('option');
-        option.value = option.text = unique[i].judul;
-        judul1.add( option );
-      }
-
-      //set tgl 
-      const uniqueIds1 = new Set();
-      const unique1 = data.filter(element => {
-      const isDuplicate1 = uniqueIds1.has(element.date);
-      uniqueIds1.add(element.date);
-      if (!isDuplicate1) {
-        return true;
-      }
-      return false;
-      });
+      displayPortofolio();
 
 
-    console.log('hasil system',unique1);
-    for(let i = 0; i< unique1.length; i++){
-      option2 = document.createElement('option');
-      option2.value = option2.text = unique1[i].date;
-      tanggal.add( option2 );
-    }
-    
-   }
+      function displayPortofolio() {
+// looping card 
+            for(let i = 0; i< dataPortofolio.length; i++){
+              document.getElementById('portofolio').innerHTML +=  ` <div
+            :class="showCards == 'all' || showCards == '${dataPortofolio[i].category}' ? 'block' : 'hidden' "
+            class="w-full px-4 md:w-1/2 lg:w-1/3"
+          >
+            <div class="relative mb-12">
+              <div class="overflow-hidden rounded-lg">
+                <img
+                  src="assets/images/portfolio/portfolio-01/image-06.jpg"
+                  alt="portfolio"
+                  class="w-full"
+                />
+              </div>
+              <div
+                class="relative z-10 mx-7 -mt-20 rounded-lg bg-white py-9 px-3 text-center shadow-lg"
+              >
+                <span class="mb-2 block text-sm font-semibold text-primary">
+                  Branding
+                </span>
+                <h3 class="mb-4 text-xl font-bold text-dark">
+                  ${dataPortofolio[i].judul}
+                </h3>
+                <a
+                  href="javascript:void(0)"
+                  class="inline-block rounded-md border py-3 px-7 text-sm font-semibold text-body-color transition hover:border-primary hover:bg-primary hover:text-white"
+                >
+                  View Details
+                </a>
+              </div>
+            </div>
+          </div>`;
+              };
 
-     function updatedData(){
-      var judul1 =  document.getElementById("cars").value;
-      var tanggal =  document.getElementById("tanggal").value;
-      document.getElementById("new").innerHTML = "";
-        if(judul1 === 'all' && tanggal === 'all'){
-          for(let i = 0; i< data.length; i++){
-            document.getElementById('new').innerHTML +=  element( data[i].date,data[i].judul,data[i].description)
+
+
+          //set button filter
+          const uniqueIds = new Set();
+          const unique = dataPortofolio.filter(element => {
+          const isDuplicate = uniqueIds.has(element.category);
+          uniqueIds.add(element.category);
+          if (!isDuplicate) {
+            return true;
+          }
+          return false;
+          });
+
+          console.log('hasil type',unique);
+          for(let i = 0; i< unique.length; i++){
+            document.getElementById('buttonFilter').innerHTML +=  `<li class="mb-1">
+                <button
+                  @click="showCards = '${unique[i].category}' "
+                  :class="showCards == '${unique[i].category}' ? activeClasses : inactiveClasses "
+                  class="inline-block rounded-lg py-2 px-5 text-center text-base font-semibold transition md:py-3 lg:px-8"
+                >
+                ${unique[i].category}
+                </button>
+              </li>`;
+          }
         }
-        }else if(judul1 === 'all' && tanggal !== 'all'){
-          databaru = data.filter(x => x.date == tanggal);
-            for(let i = 0; i< databaru.length; i++){
-              document.getElementById('new').innerHTML +=  element( databaru[i].date,databaru[i].judul,databaru[i].description);
-          };
-          }
-          else if( judul1 !== 'all' && tanggal === 'all'){
-            databaru = data.filter(x => x.judul == judul1 );
-            for(let i = 0; i< databaru.length; i++){
-              document.getElementById('new').innerHTML +=  element( databaru[i].date,databaru[i].judul,databaru[i].description);
-          };
-          }
-          else{
-            databaru = data.filter(x => x.judul == judul1 && x.date == tanggal);
-            for(let i = 0; i< databaru.length; i++){
-              document.getElementById('new').innerHTML +=  element( databaru[i].date,databaru[i].judul,databaru[i].description);
-          };
-          }
-    }
-      
-    //   function myFunction() {
-    // var checkBox = document.getElementById("myCheck");
-    // if (checkBox.checked == true){
-    // updatedData();
-    // } else {
-    // showData();
-    // }
-    // }
-  // console.log(data);
-  // for(let i = 0; i < data.length; i++) {
-  // //initialize element
-  // var div = document.createElement("div");
-  // var div2 = document.createElement("div");
-  // var div_a = document.createElement("div");
-  // var div_b = document.createElement("div");
-  // var a = document.createElement("a");
-  // var a2 = document.createElement("a");
-  // var img = document.createElement("IMG");
-  // var span = document.createElement("SPAN");
-  // var h3 = document.createElement("H3");
-  // var p = document.createElement("p");
-  // p.className = "text-base text-body-color";
-  // var textP = document.createTextNode(data[i].description);
-  // p.appendChild(textP);
-  // div.className = "w-full md:w-1/2 lg:w-1/3 px-4";
-  // div2.className = 'mb-10 group wow fadeInUp';
-  // div_a.className = 'rounded overflow-hidden mb-8';
-  // div2.setAttribute("data-wow-delay", ".1s");
-  // a.className = 'block';
-  // a2.className = 'font-semibold text-xl sm:text-2xl lg:text-xl xl:text-2xl mb-4 inline-block text-dark hover:text-primary';
-  // a.href = "blog-details.html";
-  // a2.href = "blog-details.html";
-  // var textAnchor = document.createTextNode(data[i].judul);
-  // a2.appendChild(textAnchor);
-  // img.setAttribute("src", "assets/images/blog/blog-01.jpg");
-  // img.className = 'w-full transition group-hover:scale-125 group-hover:rotate-6';
-  // img.setAttribute("alt", "image");
-  // span.className = 'bg-primary rounded inline-block text-center py-1 px-4 text-xs leading-loose font-semibold text-white mb-5';
-  // var textSpan = document.createTextNode(data[i].date);
-  // span.appendChild(textSpan);
-
-  // // div_a append
-  // a.appendChild(img)
-  // div_a.appendChild(a)
-
-  // //div_b append 
-  // h3.appendChild(a2)
-  // div_b.appendChild(h3)
-  // div_b.appendChild(span)
-  // div_b.appendChild(p)
-
-  // //div2 appen
-  // div2.appendChild(div_a);
-  // div2.appendChild(div_b);
 
 
-  // //appendelement to div parent
-  // div.appendChild(div2);
-
-  // var element = document.getElementById("new");
-  //   element.appendChild(div);
-  // }
 
     </script>
+   
+
   </body>
 </html>

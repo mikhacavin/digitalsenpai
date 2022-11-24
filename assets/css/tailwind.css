@@ -524,6 +524,15 @@ Ensure the default browser behavior of the `hidden` attribute.
   position: relative;
 }
 
+.mx-7{
+  margin-left: 1.75rem;
+  margin-right: 1.75rem;
+}
+
+.-mt-20{
+  margin-top: -5rem;
+}
+
 .sticky{
   position: -webkit-sticky;
   position: sticky;
@@ -2341,6 +2350,11 @@ body {
   }
 
   .lg\:py-9{
+    padding-top: 2.25rem;
+    padding-bottom: 2.25rem;
+  }
+
+  .py-9{
     padding-top: 2.25rem;
     padding-bottom: 2.25rem;
   }
